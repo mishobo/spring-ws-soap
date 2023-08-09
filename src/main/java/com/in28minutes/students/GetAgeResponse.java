@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="age" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,27 +35,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "id"
+    "age"
 })
-@XmlRootElement(name = "GetStudentDetailsRequest")
-public class GetStudentDetailsRequest {
+@XmlRootElement(name = "getAgeResponse")
+public class GetAgeResponse {
 
-    protected int id;
+    protected int age;
 
     /**
-     * Gets the value of the id property.
+     * Gets the value of the age property.
      * 
      */
-    public int getId() {
-        return id;
+    public int getAge() {
+        return age;
     }
 
     /**
-     * Sets the value of the id property.
+     * Sets the value of the age property.
      * 
      */
-    public void setId(int value) {
-        this.id = value;
+    public void setAge(int value) {
+        this.age = value;
     }
 
 }
