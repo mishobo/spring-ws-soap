@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.soap.web.services.example.student;
+package com.in28minutes.springboot.soap.web.services.student;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -5,5 +5,5 @@
 // Generated on: 2023.08.10 at 10:56:31 pm EAT 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://in28minutes.com/students", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package com.in28minutes.students;
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.webservicesoap.org/birthday", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package org.webservicesoap.birthday;

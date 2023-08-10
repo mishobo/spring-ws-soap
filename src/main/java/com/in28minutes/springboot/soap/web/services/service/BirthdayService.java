@@ -1,8 +1,8 @@
-package com.in28minutes.springboot.soap.web.services.example.service;
+package com.in28minutes.springboot.soap.web.services.service;
 
-import com.in28minutes.students.GetAgeResponse;
-import com.in28minutes.students.GetBirthdayRequest;
 import org.springframework.stereotype.Service;
+import org.webservicesoap.birthday.GetAgeResponse;
+import org.webservicesoap.birthday.GetBirthdayRequest;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -36,5 +36,6 @@ public class BirthdayService {
         Period period = Period.between(birthday, today);
         return period.getYears();
     }
+
 
 }

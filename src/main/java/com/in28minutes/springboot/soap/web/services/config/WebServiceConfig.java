@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.soap.web.services.example.config;
+package com.in28minutes.springboot.soap.web.services.config;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
@@ -22,6 +22,11 @@ public class WebServiceConfig {
         return new ServletRegistrationBean(messageDispatcherServlet, "/ws/*");
     }
 
+    @Bean
+    public XsdSchema studentsSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("student-details.xsd"));
+    }
+
     @Bean(name = "students")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema studentsSchema) {
         DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
@@ -33,7 +38,20 @@ public class WebServiceConfig {
     }
 
     @Bean
-    public XsdSchema studentsSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("student-details.xsd"));
+    public XsdSchema schema() {
+        return new SimpleXsdSchema(new ClassPathResource("birthday.xsd"));
     }
+
+
+    @Bean(name = "birthday")
+    public DefaultWsdl11Definition defaultWsdl11Definition1(XsdSchema schema){
+        DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
+        definition.setSchema(schema);
+        definition.setLocationUri("/ws");
+        definition.setPortTypeName("BirthdayServicePort");
+        definition.setTargetNamespace("http://www.webservicesoap.org/birthday");
+        return definition;
+    }
+
+
 }

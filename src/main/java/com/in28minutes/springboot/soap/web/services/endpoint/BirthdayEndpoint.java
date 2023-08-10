@@ -1,13 +1,14 @@
-package com.in28minutes.springboot.soap.web.services.example.endpoint;
+package com.in28minutes.springboot.soap.web.services.endpoint;
 
-import com.in28minutes.springboot.soap.web.services.example.service.BirthdayService;
-import com.in28minutes.students.GetAgeResponse;
-import com.in28minutes.students.GetBirthdayRequest;
+
+import com.in28minutes.springboot.soap.web.services.service.BirthdayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+import org.webservicesoap.birthday.GetAgeResponse;
+import org.webservicesoap.birthday.GetBirthdayRequest;
 
 @Endpoint
 public class BirthdayEndpoint {
@@ -23,6 +24,5 @@ public class BirthdayEndpoint {
         System.out.println("request payload " + request);
         return service.age(request);
     }
-
 
 }

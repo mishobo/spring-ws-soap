@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.soap.web.services.example;
+package com.in28minutes.springboot.soap.web.services;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

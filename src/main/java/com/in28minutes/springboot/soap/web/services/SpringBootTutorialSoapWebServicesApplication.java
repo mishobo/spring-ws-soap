@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.soap.web.services.example;
+package com.in28minutes.springboot.soap.web.services;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

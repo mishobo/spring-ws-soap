@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.soap.web.services.example.endpoint;
+package com.in28minutes.springboot.soap.web.services.endpoint;
 
 import com.in28minutes.students.GetStudentDetailsRequest;
 import com.in28minutes.students.GetStudentDetailsResponse;
