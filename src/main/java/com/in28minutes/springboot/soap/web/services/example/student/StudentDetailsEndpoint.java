@@ -19,6 +19,9 @@ public class StudentDetailsEndpoint {
     @PayloadRoot(namespace = "http://in28minutes.com/students", localPart = "GetStudentDetailsRequest")
     @ResponsePayload
     public GetStudentDetailsResponse processCourseDetailsRequest(@RequestPayload GetStudentDetailsRequest request) {
+
+        System.out.println("payload request :" + request);
+
         GetStudentDetailsResponse response = new GetStudentDetailsResponse();
         StudentDetails studentDetails = new StudentDetails();
         studentDetails.setId(request.getId());
