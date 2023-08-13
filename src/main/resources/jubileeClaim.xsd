@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://husseinabdallah.com/jubileeClaim" xmlns:tns="http://husseinabdallah.com/jubileeClaim"
+           elementFormDefault="qualified">
+
+    <xs:element name="LoadClaimRequestMessage">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name= "LoadClaimRequest" type="tns:LoadClaimRequest"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="LoadClaimRequest">
+        <xs:sequence>
+            <xs:element name="RequestReference" type="xs:int"/>
+            <xs:element name="Claim" type="tns:Claim"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Claim">
+        <xs:sequence>
+            <xs:element name="PolicyId" type="xs:int"/>
+            <xs:element name="PolicyEffectiveDate" type="xs:string"/>
+            <xs:element name="ClaimDate" type="xs:string"/>
+            <xs:element name="Beneficiary" type="tns:Beneficiary"/>
+            <xs:element name="PrimaryDiagnosisICD10Code" type="xs:string"/>
+            <xs:element name="CreatedByUsername" type="xs:string"/>
+            <xs:element name="CreatedDate" type="xs:string"/>
+            <xs:element name="FirstConsultationDate" type="xs:string"/>
+            <xs:element name="ConditionStatus" type="xs:string"/>
+            <xs:element name="Treatments" type="tns:Treatments"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Beneficiary">
+        <xs:sequence>
+            <xs:element name="ActisureId" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Treatments">
+        <xs:sequence>
+            <xs:element name="Treatment" type="tns:Treatment"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Treatment">
+        <xs:sequence>
+            <xs:element name="ProcedureCode" type="xs:int"/>
+            <xs:element name="TreatmentStatus" type="xs:int"/>
+            <xs:element name="FacilityList" type="tns:FacilityList"/>
+            <xs:element name="Invoices" type="tns:Invoices"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FacilityList">
+        <xs:sequence>
+            <xs:element name="ActisureEntity" type="tns:ActisureEntity"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ActisureEntity">
+        <xs:sequence>
+            <xs:element name="ActisureId" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Invoices">
+        <xs:sequence>
+            <xs:element name="Invoice" type="tns:Invoice"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Invoice">
+        <xs:sequence>
+            <xs:element name="InvoiceFrom" type="tns:InvoiceFrom"/>
+            <xs:element name="InvoiceStatus" type="xs:string"/>
+            <xs:element name="InvoiceReference" type="xs:string"/>
+            <xs:element name="InvoiceDate" type="xs:string"/>
+            <xs:element name="ReceivedDate" type="xs:string"/>
+            <xs:element name="InvoiceCurrencyCode" type="xs:string"/>
+            <xs:element name="ExchangeRateDate" type="xs:string"/>
+            <xs:element name="ExchangeRateToProductBaseCurrency" type="xs:string"/>
+            <xs:element name="ExchangeRateToAccountingBaseCurrency" type="xs:string"/>
+            <xs:element name="Payee" type="tns:Payee"/>
+            <xs:element name="PaymentMethod" type="xs:string"/>
+            <xs:element name="ProductClaimAccount" type="xs:string"/>
+            <xs:element name="PaymentCurrencyCode" type="xs:string"/>
+            <xs:element name="PaymentExchangeRateDate" type="xs:string"/>
+            <xs:element name="PaymentExchangeRateToProductBaseCurrency" type="xs:string"/>
+            <xs:element name="PaymentExchangeRateToAccountingBaseCurrency" type="xs:string"/>
+            <xs:element name="TreatmentCountryName" type="xs:string"/>
+            <xs:element name="TreatmentDate" type="xs:string"/>
+            <xs:element name="InvoiceLines" type="tns:InvoiceLines"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="InvoiceFrom">
+        <xs:sequence>
+            <xs:element name="ActisureId" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Payee">
+        <xs:sequence>
+            <xs:element name="ActisureId" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="InvoiceLines">
+        <xs:sequence>
+            <xs:element name="InvoiceLine" type="tns:InvoiceLine"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="InvoiceLine">
+        <xs:sequence>
+            <xs:element name="InvoiceLineStatus" type="tns:InvoiceLine"/>
+            <xs:element name="InvoiceLineUserStatus" type="tns:InvoiceLine"/>
+            <xs:element name="Amount" type="tns:InvoiceLine"/>
+            <xs:element name="DiscountAmount" type="tns:InvoiceLine"/>
+            <xs:element name="ServiceDate" type="tns:InvoiceLine"/>
+            <xs:element name="Quantity" type="tns:InvoiceLine"/>
+            <xs:element name="AdmissionStatus" type="tns:InvoiceLine"/>
+            <xs:element name="ServiceEndDate" type="tns:InvoiceLine"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

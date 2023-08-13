@@ -3,6 +3,7 @@
            targetNamespace="http://husseinabdallah.com/students"
            xmlns:tns="http://husseinabdallah.com/students"
            elementFormDefault="qualified">
+
     <xs:element name="GetStudentDetailsRequest">
         <xs:complexType>
             <xs:sequence>
@@ -18,6 +19,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
     <xs:complexType name="StudentDetails">
         <xs:sequence>
             <xs:element name="id" type="xs:int"/>

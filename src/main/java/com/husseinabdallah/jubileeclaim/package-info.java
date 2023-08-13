@@ -5,5 +5,5 @@
 // Generated on: 2023.08.13 at 04:14:59 pm EAT 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://husseinabdallah.com/country", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package com.husseinabdallah.country;
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://husseinabdallah.com/jubileeClaim", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package com.husseinabdallah.jubileeclaim;

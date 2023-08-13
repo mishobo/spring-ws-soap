@@ -6,26 +6,25 @@
 //
 
 
-package com.husseinabdallah.country;
+package com.husseinabdallah.jubileeclaim;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for InvoiceLines complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
+ * &lt;complexType name="InvoiceLines">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="InvoiceLine" type="{http://husseinabdallah.com/jubileeClaim}InvoiceLine"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,37 +34,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "name"
+@XmlType(name = "InvoiceLines", propOrder = {
+    "invoiceLine"
 })
-@XmlRootElement(name = "getCountryRequest")
-public class GetCountryRequest {
+public class InvoiceLines {
 
-    @XmlElement(required = true)
-    protected String name;
+    @XmlElement(name = "InvoiceLine", required = true)
+    protected InvoiceLine invoiceLine;
 
     /**
-     * Gets the value of the name property.
+     * Gets the value of the invoiceLine property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link InvoiceLine }
      *     
      */
-    public String getName() {
-        return name;
+    public InvoiceLine getInvoiceLine() {
+        return invoiceLine;
     }
 
     /**
-     * Sets the value of the name property.
+     * Sets the value of the invoiceLine property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link InvoiceLine }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
+    public void setInvoiceLine(InvoiceLine value) {
+        this.invoiceLine = value;
     }
 
 }

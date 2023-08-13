@@ -6,7 +6,7 @@
 //
 
 
-package com.husseinabdallah.country;
+package com.husseinabdallah.jubileeclaim;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="LoadClaimRequest" type="{http://husseinabdallah.com/jubileeClaim}LoadClaimRequest"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "name"
+    "loadClaimRequest"
 })
-@XmlRootElement(name = "getCountryRequest")
-public class GetCountryRequest {
+@XmlRootElement(name = "LoadClaimRequestMessage")
+public class LoadClaimRequestMessage {
 
-    @XmlElement(required = true)
-    protected String name;
+    @XmlElement(name = "LoadClaimRequest", required = true)
+    protected LoadClaimRequest loadClaimRequest;
 
     /**
-     * Gets the value of the name property.
+     * Gets the value of the loadClaimRequest property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link LoadClaimRequest }
      *     
      */
-    public String getName() {
-        return name;
+    public LoadClaimRequest getLoadClaimRequest() {
+        return loadClaimRequest;
     }
 
     /**
-     * Sets the value of the name property.
+     * Sets the value of the loadClaimRequest property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link LoadClaimRequest }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
+    public void setLoadClaimRequest(LoadClaimRequest value) {
+        this.loadClaimRequest = value;
     }
 
 }
