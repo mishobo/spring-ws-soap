@@ -10,21 +10,21 @@ package com.husseinabdallah.jubileeclaim;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Payee complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Payee">
+ * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="ActisureId" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="visitNumber" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -34,28 +34,28 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Payee", propOrder = {
-    "actisureId"
+@XmlType(name = "", propOrder = {
+    "visitNumber"
 })
-public class Payee {
+@XmlRootElement(name = "GetClaimDetailsRequest")
+public class GetClaimDetailsRequest {
 
-    @XmlElement(name = "ActisureId")
-    protected int actisureId;
+    protected int visitNumber;
 
     /**
-     * Gets the value of the actisureId property.
+     * Gets the value of the visitNumber property.
      * 
      */
-    public int getActisureId() {
-        return actisureId;
+    public int getVisitNumber() {
+        return visitNumber;
     }
 
     /**
-     * Sets the value of the actisureId property.
+     * Sets the value of the visitNumber property.
      * 
      */
-    public void setActisureId(int value) {
-        this.actisureId = value;
+    public void setVisitNumber(int value) {
+        this.visitNumber = value;
     }
 
 }

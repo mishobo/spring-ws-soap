@@ -15,7 +15,7 @@
     <xs:element name="GetStudentDetailsResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name= "StudentDetails" type="tns:StudentDetails"/>
+                <xs:element name= "StudentDetails" type="tns:StudentDetails" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

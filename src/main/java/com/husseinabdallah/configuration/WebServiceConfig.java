@@ -13,7 +13,7 @@ import org.springframework.xml.xsd.XsdSchema;
 
 @EnableWs
 @Configuration
-public class WebServiceConfig {
+public class WebServiceConfig  {
     @Bean
     public ServletRegistrationBean messageDispatcherServlet(ApplicationContext context) {
         MessageDispatcherServlet messageDispatcherServlet = new MessageDispatcherServlet();
@@ -68,5 +68,21 @@ public class WebServiceConfig {
     public XsdSchema countriesSchema() {
         return new SimpleXsdSchema(new ClassPathResource("country.xsd"));
     }
+
+    @Bean(name = "jubileeClaim")
+    public DefaultWsdl11Definition defaultWsdl11Definition3(XsdSchema jubileeClaimSchema) {
+        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        wsdl11Definition.setPortTypeName("JubileeClaimPort");
+        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setTargetNamespace("http://husseinabdallah.com/jubileeClaim");
+        wsdl11Definition.setSchema(jubileeClaimSchema);
+        return wsdl11Definition;
+    }
+
+    @Bean
+    public XsdSchema jubileeClaimSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("jubileeClaim.xsd"));
+    }
+
 
 }

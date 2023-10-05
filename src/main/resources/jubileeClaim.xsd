@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://husseinabdallah.com/jubileeClaim" xmlns:tns="http://husseinabdallah.com/jubileeClaim"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://husseinabdallah.com/jubileeClaim"
+           xmlns:tns="http://husseinabdallah.com/jubileeClaim"
            elementFormDefault="qualified">
+
+    <xs:element name="GetClaimDetailsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name= "visitNumber" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
     <xs:element name="LoadClaimRequestMessage">
         <xs:complexType>
