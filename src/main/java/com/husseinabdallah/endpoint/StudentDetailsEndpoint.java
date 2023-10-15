@@ -1,6 +1,5 @@
 package com.husseinabdallah.endpoint;
 
-import com.husseinabdallah.configuration.MyHandler;
 import com.husseinabdallah.students.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ws.context.MessageContext;
@@ -21,7 +20,6 @@ import java.util.*;
 @RequiredArgsConstructor
 public class StudentDetailsEndpoint {
 
-    private final MyHandler handler;
 
     @PayloadRoot(namespace = "http://husseinabdallah.com/students", localPart = "GetStudentDetailsRequest")
     @ResponsePayload
@@ -32,14 +30,16 @@ public class StudentDetailsEndpoint {
         SaajSoapMessage soapResponse = (SaajSoapMessage) messageContext.getResponse();
         SoapHeader soapResponseHeader = soapResponse.getSoapHeader();
 
-//        New UsernameHeader Object
-        UsernameHeader usernameToken = new UsernameHeader();
-        usernameToken.setUsername("SandyAPI");
-        usernameToken.setPassword("Test_Password");
+        ActisureHeader actisureHeader = new ActisureHeader();
+        actisureHeader.setExternalRefID("EXT20230922165136462-20");
+        actisureHeader.setSource("LCT");
+        actisureHeader.setInternalRefID("INT20230922165136462-20");
 
-        //Create SecurityHeader Object that will contain the UsernameHeader Object
-        SecurityHeader securityHeader = new SecurityHeader();
-        securityHeader.setUsernameHeader(usernameToken);
+        Header header = new Header();
+        header.setAction("http://services.activus.com/claimsloadservice/servicecontracts/2011/05/ActClaimsLoadServiceContract/LoadClaim");
+        header.setTo("http://10.158.2.15:9021/Actisure/ClaimsLoadService");
+        header.setActisureHeader(actisureHeader);
+
 
         GetStudentDetailsResponse response = new GetStudentDetailsResponse();
         ArrayList<StudentDetails> students = new ArrayList<StudentDetails>();
@@ -65,8 +65,8 @@ public class StudentDetailsEndpoint {
         response.setStudentDetails(students);
 
         //Send Response back (Classes marshalled)
-        JAXBContext jaxbContext = JAXBContext.newInstance(SecurityHeader.class);
-        jaxbContext.createMarshaller().marshal(securityHeader, soapResponseHeader.getResult());
+        JAXBContext jaxbContext = JAXBContext.newInstance(Header.class);
+        jaxbContext.createMarshaller().marshal(header, soapResponseHeader.getResult());
         return response;
     }
 

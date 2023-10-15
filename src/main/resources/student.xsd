@@ -4,6 +4,27 @@
            xmlns:tns="http://husseinabdallah.com/students"
            elementFormDefault="qualified">
 
+
+
+    <wsa:element name="Header" xmlns:wsa="http://www.w3.org/2001/XMLSchema">
+        <wsa:complexType>
+            <wsa:sequence>
+                <wsa:element name="Action" type="xs:string"/>
+                <wsa:element name="To" type="xs:string"/>
+                <wsa:element name= "ActisureHeader" type="tns:ActisureHeader"/>
+            </wsa:sequence>
+        </wsa:complexType>
+    </wsa:element>
+
+
+    <xs:complexType name="ActisureHeader">
+        <xs:sequence>
+            <xs:element name="ExternalRefID" type="xs:string"/>
+            <xs:element name="Source" type="xs:string"/>
+            <xs:element name="InternalRefID" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:element name="GetStudentDetailsRequest">
         <xs:complexType>
             <xs:sequence>
@@ -15,7 +36,7 @@
     <xs:element name="GetStudentDetailsResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name= "StudentDetails" type="tns:StudentDetails"/>
+                <xs:element name= "studentDetails" type="tns:StudentDetails"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

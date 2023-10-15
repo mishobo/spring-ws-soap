@@ -4,7 +4,6 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.ws.config.annotation.EnableWs;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
@@ -87,20 +86,20 @@ public class WebServiceConfig  {
     }
 
 
-    @Bean
-    public XsdSchema studentsHeaderSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("studentHeader.xsd"));
-    }
-
-    @Bean(name = "studentHeader")
-    public DefaultWsdl11Definition defaultWsdl11Definition5 (XsdSchema studentsHeaderSchema) {
-        DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
-        definition.setPortTypeName("HeaderPort");
-        definition.setTargetNamespace("http://husseinabdallah.com/students");
-        definition.setLocationUri("/ws");
-        definition.setSchema(studentsHeaderSchema);
-        return definition;
-    }
+//    @Bean
+//    public XsdSchema studentsHeaderSchema() {
+//        return new SimpleXsdSchema(new ClassPathResource("studentHeader.xsd"));
+//    }
+//
+//    @Bean(name = "studentHeader")
+//    public DefaultWsdl11Definition defaultWsdl11Definition5 (XsdSchema studentsHeaderSchema) {
+//        DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
+//        definition.setPortTypeName("HeaderPort");
+//        definition.setTargetNamespace("http://husseinabdallah.com/students");
+//        definition.setLocationUri("/ws");
+//        definition.setSchema(studentsHeaderSchema);
+//        return definition;
+//    }
 
 
 }
