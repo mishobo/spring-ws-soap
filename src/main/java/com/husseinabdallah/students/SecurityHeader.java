@@ -10,6 +10,7 @@ package com.husseinabdallah.students;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -24,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="usernameHeader" type="{http://husseinabdallah.com/students}UsernameHeader"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,27 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "id"
+    "usernameHeader"
 })
-@XmlRootElement(name = "GetStudentDetailsRequest")
-public class GetStudentDetailsRequest {
+@XmlRootElement(name = "SecurityHeader")
+public class SecurityHeader {
 
-    protected int id;
+    @XmlElement(required = true)
+    protected UsernameHeader usernameHeader;
 
     /**
-     * Gets the value of the id property.
+     * Gets the value of the usernameHeader property.
      * 
+     * @return
+     *     possible object is
+     *     {@link UsernameHeader }
+     *     
      */
-    public int getId() {
-        return id;
+    public UsernameHeader getUsernameHeader() {
+        return usernameHeader;
     }
 
     /**
-     * Sets the value of the id property.
+     * Sets the value of the usernameHeader property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link UsernameHeader }
+     *     
      */
-    public void setId(int value) {
-        this.id = value;
+    public void setUsernameHeader(UsernameHeader value) {
+        this.usernameHeader = value;
     }
 
 }
