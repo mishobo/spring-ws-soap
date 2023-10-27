@@ -6,7 +6,7 @@
 //
 
 
-package com.husseinabdallah.country;
+package com.husseinabdallah.britam;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the com.husseinabdallah.country package. 
+ * generated in the com.husseinabdallah.britam package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -30,34 +30,58 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.husseinabdallah.country
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.husseinabdallah.britam
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link GetCountryResponse }
+     * Create an instance of {@link PushNotifications }
      * 
      */
-    public GetCountryResponse createGetCountryResponse() {
-        return new GetCountryResponse();
+    public PushNotifications createPushNotifications() {
+        return new PushNotifications();
     }
 
     /**
-     * Create an instance of {@link GetCountryRequest }
+     * Create an instance of {@link Security }
      * 
      */
-    public GetCountryRequest createGetCountryRequest() {
-        return new GetCountryRequest();
+    public Security createSecurity() {
+        return new Security();
     }
 
     /**
-     * Create an instance of {@link Country }
+     * Create an instance of {@link Header }
      * 
      */
-    public Country createCountry() {
-        return new Country();
+    public Header createHeader() {
+        return new Header();
+    }
+
+    /**
+     * Create an instance of {@link SendBritamSmsRequest }
+     * 
+     */
+    public SendBritamSmsRequest createSendBritamSmsRequest() {
+        return new SendBritamSmsRequest();
+    }
+
+    /**
+     * Create an instance of {@link UsernameToken }
+     * 
+     */
+    public UsernameToken createUsernameToken() {
+        return new UsernameToken();
+    }
+
+    /**
+     * Create an instance of {@link Arg0 }
+     * 
+     */
+    public Arg0 createArg0() {
+        return new Arg0();
     }
 
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://husseinabdallah.com/britam"
+           xmlns:tns="http://husseinabdallah.com/britam"
+           elementFormDefault="qualified">
+
+    <xs:element name="SendBritamSmsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name= "phoneNo" type="xs:string"/>
+                <xs:element name= "text" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="pushNotifications">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="arg0" type="tns:arg0" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="arg0">
+        <xs:sequence>
+            <xs:element name="notificationId" type="xs:int"/>
+            <xs:element name="notificationType" type="xs:string"/>
+            <xs:element name="lOBSrc" type="xs:int"/>
+            <xs:element name="companyCode" type="xs:int"/>
+            <xs:element name="countryCode" type="xs:string"/>
+            <xs:element name="content" type="xs:string"/>
+            <xs:element name="destination" type="xs:string"/>
+            <xs:element name="isProcessed" type="xs:int"/>
+            <xs:element name="creationDate" type="xs:string"/>
+            <xs:element name="processingStatus" type="xs:int"/>
+            <xs:element name="processingDate" type="xs:int"/>
+            <xs:element name="notificationCode" type="xs:string"/>
+            <xs:element name="acknowledgement" type="xs:string"/>
+            <xs:element name="attachment" type="xs:string"/>
+            <xs:element name="endDate" type="xs:string"/>
+            <xs:element name="priority" type="xs:int"/>
+            <xs:element name="startDate" type="xs:string"/>
+            <xs:element name="destinationCC" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="Header">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Security" type="tns:Security"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Security">
+        <xs:sequence>
+            <xs:element name="UsernameToken" type="tns:UsernameToken" />
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="UsernameToken">
+        <xs:sequence>
+            <xs:element name="Username" type="xs:string"/>
+            <xs:element name="Password" type="xs:string" />
+            <xs:element name="Nonce" type="xs:string" />
+            <xs:element name="Created" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

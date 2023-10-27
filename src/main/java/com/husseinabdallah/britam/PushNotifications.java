@@ -6,7 +6,7 @@
 //
 
 
-package com.husseinabdallah.country;
+package com.husseinabdallah.britam;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="arg0" type="{http://husseinabdallah.com/britam}arg0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "name"
+    "arg0"
 })
-@XmlRootElement(name = "getCountryRequest")
-public class GetCountryRequest {
+@XmlRootElement(name = "pushNotifications")
+public class PushNotifications {
 
     @XmlElement(required = true)
-    protected String name;
+    protected Arg0 arg0;
 
     /**
-     * Gets the value of the name property.
+     * Gets the value of the arg0 property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Arg0 }
      *     
      */
-    public String getName() {
-        return name;
+    public Arg0 getArg0() {
+        return arg0;
     }
 
     /**
-     * Sets the value of the name property.
+     * Sets the value of the arg0 property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Arg0 }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
+    public void setArg0(Arg0 value) {
+        this.arg0 = value;
     }
 
 }

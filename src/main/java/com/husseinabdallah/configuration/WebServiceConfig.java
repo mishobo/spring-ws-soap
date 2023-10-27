@@ -85,21 +85,21 @@ public class WebServiceConfig  {
         return wsdl11Definition;
     }
 
+    @Bean
+    public XsdSchema britamSmsSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("britam.xsd"));
+    }
 
-//    @Bean
-//    public XsdSchema studentsHeaderSchema() {
-//        return new SimpleXsdSchema(new ClassPathResource("studentHeader.xsd"));
-//    }
-//
-//    @Bean(name = "studentHeader")
-//    public DefaultWsdl11Definition defaultWsdl11Definition5 (XsdSchema studentsHeaderSchema) {
-//        DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
-//        definition.setPortTypeName("HeaderPort");
-//        definition.setTargetNamespace("http://husseinabdallah.com/students");
-//        definition.setLocationUri("/ws");
-//        definition.setSchema(studentsHeaderSchema);
-//        return definition;
-//    }
+    @Bean(name = "britam")
+    public DefaultWsdl11Definition defaultWsdl11Definition5 (XsdSchema britamSmsSchema) {
+        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        wsdl11Definition.setPortTypeName("britamPort");
+        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setTargetNamespace("http://husseinabdallah.com/britam");
+        wsdl11Definition.setSchema(britamSmsSchema);
+        return wsdl11Definition;
+    }
+
 
 
 }

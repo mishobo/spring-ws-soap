@@ -5,5 +5,5 @@
 // Generated on: 2023.10.26 at 10:24:17 pm EAT 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://husseinabdallah.com/birthday", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package com.husseinabdallah.birthday;
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://husseinabdallah.com/britam", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package com.husseinabdallah.britam;
