@@ -13,7 +13,6 @@
         </xs:complexType>
     </xs:element>
 
-
     <xs:element name="pushNotifications">
         <xs:complexType>
             <xs:sequence>
@@ -45,20 +44,13 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:element name="Header">
+    <xs:element name="Security" >
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Security" type="tns:Security"/>
+                <xs:element name="UsernameToken" type="tns:UsernameToken" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
-    <xs:complexType name="Security">
-        <xs:sequence>
-            <xs:element name="UsernameToken" type="tns:UsernameToken" />
-        </xs:sequence>
-    </xs:complexType>
-
 
     <xs:complexType name="UsernameToken">
         <xs:sequence>
