@@ -21,8 +21,6 @@ public class BritamSmsEndpoint {
     @PayloadRoot(namespace = "http://husseinabdallah.com/britam", localPart = "SendBritamSmsRequest")
     @ResponsePayload
     public PushNotifications britamSMS(@RequestPayload SendBritamSmsRequest request, MessageContext messageContext) throws JAXBException, SOAPException {
-//        System.out.println("payload request :" + request.setPhoneNo("+254703933944"));
-//        System.out.println("payload request :" + request.setText("preAuth"));
 
         Arg0 args = new Arg0();
         args.setNotificationType("SMS");
@@ -58,7 +56,15 @@ public class BritamSmsEndpoint {
         header.setPrefix("soapenv");
         body.setPrefix("soapenv");
 
-
+        Iterator it = body.getChildElements();
+        System.out.println(body.getChildElements());
+        System.out.println(it.hasNext());
+        while (it.hasNext()) {
+            SOAPBodyElement node = (SOAPBodyElement) it.next();
+            String val = node.getValue();
+            System.out.println("The Value is:" + val);
+            node.setPrefix("ws");
+        }
 
         if (fault != null) {
             fault.setPrefix("soapenv");
@@ -76,6 +82,7 @@ public class BritamSmsEndpoint {
         //Send Response back (Classes marshalled)
         JAXBContext jaxbContext = JAXBContext.newInstance(Security.class);
         jaxbContext.createMarshaller().marshal(security, soapResponseHeader.getResult());
+
 
         return notifications;
     }

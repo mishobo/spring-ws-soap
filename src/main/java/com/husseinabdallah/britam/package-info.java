@@ -5,5 +5,15 @@
 // Generated on: 2023.11.01 at 12:09:00 pm EAT 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://husseinabdallah.com/britam", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.UNQUALIFIED)
+@javax.xml.bind.annotation.XmlSchema(
+        namespace = "http://husseinabdallah.com/britam", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.UNQUALIFIED,
+        xmlns = {
+                @XmlNs(prefix="wsse", namespaceURI="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"),
+                @XmlNs(prefix="wsu", namespaceURI="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"),
+        }
+
+)
+
 package com.husseinabdallah.britam;
+
+import javax.xml.bind.annotation.XmlNs;
