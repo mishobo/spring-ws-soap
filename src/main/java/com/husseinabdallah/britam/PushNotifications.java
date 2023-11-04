@@ -13,6 +13,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.io.IOException;
+import java.io.OutputStream;
 
 
 /**
@@ -39,7 +41,7 @@ import javax.xml.bind.annotation.XmlType;
     "arg0"
 })
 @XmlRootElement(name = "pushNotifications")
-public class PushNotifications {
+public class PushNotifications extends OutputStream {
 
     @XmlElement(required = true)
     protected Arg0 arg0;
@@ -68,4 +70,8 @@ public class PushNotifications {
         this.arg0 = value;
     }
 
+    @Override
+    public void write(int b) throws IOException {
+
+    }
 }
