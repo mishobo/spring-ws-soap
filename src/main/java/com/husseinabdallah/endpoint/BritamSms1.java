@@ -1,15 +1,19 @@
 package com.husseinabdallah.endpoint;
 
 
+import lombok.val;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.reactive.ClientHttpRequest;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.BodyInserter;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import javax.xml.namespace.QName;
 import javax.xml.soap.*;
@@ -22,7 +26,10 @@ public class BritamSms1 {
 
 
     @RequestMapping(value = "/notification", method = RequestMethod.GET, produces = { "text/xml" })
-    public String soapMessage() throws SOAPException, IOException {
+    public String soapMessage(
+            @RequestParam String sms,
+            @RequestParam String phoneNo
+    ) throws SOAPException, IOException {
         MessageFactory factory = MessageFactory.newInstance();
         SOAPMessage message = factory.createMessage();
 
@@ -78,10 +85,10 @@ public class BritamSms1 {
         countryCode.addTextNode("KE");
 
         SOAPElement content = arg0.addChildElement(new QName("content"));
-        content.addTextNode("preAuth");
+        content.addTextNode(sms);
 
         SOAPElement destination = arg0.addChildElement(new QName("destination"));
-        destination.addTextNode("+254703933944");
+        destination.addTextNode(phoneNo);
 
         SOAPElement isProcessed = arg0.addChildElement(new QName("isProcessed"));
         isProcessed.addTextNode("0");
@@ -113,15 +120,28 @@ public class BritamSms1 {
         header.setPrefix(prefix);
         body.setPrefix(prefix);
 
-
-        message.writeTo(System.out);
-        System.out.println();
-
         ByteArrayOutputStream outstream = new ByteArrayOutputStream();
         message.writeTo(outstream);
         String strMsg = new String(outstream.toByteArray());
-
+        System.out.println(strMsg);
+        sendBritamSms(strMsg);
         return strMsg;
+    }
+
+    public void sendBritamSms(String strMsg){
+
+        WebClient britamClaimClient = WebClient.builder()
+                .baseUrl("https://apitest.britam.com/MedicalClaims/ProxyServices/MedicalClaimsProxyServiceRS/claim")
+                .build();
+        String response = britamClaimClient
+                .post()
+                .header(HttpHeaders.CONTENT_TYPE, String.valueOf(MediaType.TEXT_XML))
+                .bodyValue(strMsg)
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+
+        System.out.println(response);
     }
 
 
@@ -141,20 +161,15 @@ public class BritamSms1 {
         SOAPElement soapBodyElem1 = soapBodyElem.addChildElement("id", "acme");
         soapBodyElem1.addTextNode("10");
 
-        soapMessage.saveChanges();
-
-        System.out.println("Request SOAP Message = ");
-        soapMessage.writeTo(System.out);
-        System.out.println();
-
-
         ByteArrayOutputStream outstream = new ByteArrayOutputStream();
         soapMessage.writeTo(outstream);
         String strMsg = new String(outstream.toByteArray());
+        System.out.println(strMsg);
 
         return strMsg;
 
     }
+
 
 
 
